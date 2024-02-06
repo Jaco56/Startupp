@@ -18,3 +18,14 @@ Going to the gym with friends is the best when your trying to make progress, but
 * Service - Create a backend service using a server-side technology, with endpoints for logging in, retrieving progress and max stats, as well as challenges given by users.
 * Websocket - Enable real-time communication between the server and clients. This is crucial for updating the UI in real-time as stats are recorded.
 * React - Builds front end components, allowing a better user interface, with updates recieved through websockets. 
+
+## HTML Deliverable
+I worked on the application structure and some of the formatting for this deliverable.
+* **HTML pages** - 4 html pages, one for the login, one for the home, one for viewing friends scores, and one for seeing challenges.
+* **Links** - There is a nav menu when logged in that will take you to two separte pages for friends and challenges.
+* **Text** - Descriptions of your maxes as well as your frineds are outlined in text, which are editable, and same with the challenges set.
+* **Images** - I added an image of a dumbbell to the front page to show an idea of the icon.
+* **Login** - Input box and login button for this.
+* **Database** - Collection of users maxes that can be displayed as friends. 
+* **Websocket** - real time updating for challenges set and challenges made.
+  
