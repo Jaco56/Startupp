@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; 
+            color: #000000; 
+        }
 
+        header {
+            background-color: #fff; 
+            padding: 10px;
+            text-align: center;
+            margin: 0 auto 20px auto; 
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff; 
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        #friends-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .friend-box {
+            border: 2px solid #000000; 
+            padding: 10px;
+            margin: 20px; 
+            border-radius: 5px;
+            width: 45%; 
+            box-sizing: border-box; 
+            display: block; 
+            margin: 0 auto; 
+        }
+
+        .friend-username {
+            font-weight: bold; 
+            margin-bottom: 10px;
+        }
+
+        .friend-max {
+            margin-bottom: 5px;
+        }
+
+        #friends-container h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><span id="username">Username</span>'s Maxes</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="challenges.html">Challenges</a>
+    </nav>
+
+    <div id="friends-container">
+        <div class="friend-box">
+            <p class="friend-username">Friend 1</p>
+            <p class="friend-max"><span class="max-title">Squat Max:</span> <span id="friend1-squat"> max value</span></p>
+            <p class="friend-max"><span class="max-title">Bench Max:</span> <span id="friend1-bench"> max value</span></p>
+            <p class="friend-max"><span class="max-title">Deadlift Max:</span> <span id="friend1-deadlift"> max value</span></p>
+        </div>
+        <div class="friend-box">
+            <p class="friend-username">Friend 2</p>
+            <p class="friend-max"><span class="max-title">Squat Max:</span> <span id="friend2-squat"> max value</span></p>
+            <p class="friend-max"><span class="max-title">Bench Max:</span> <span id="friend2-bench"> max value</span></p>
+            <p class="friend-max"><span class="max-title">Deadlift Max:</span> <span id="friend2-deadlift"> max value</span></p>
+        </div>
+        <div class="friend-box">
+            <p class="friend-username">Friend 3</p>
+            <p class="friend-max"><span class="max-title">Squat Max:</span> <span id="friend3-squat"> max value</span></p>
+            <p class="friend-max"><span class="max-title">Bench Max:</span> <span id="friend3-bench"> max value</span></p>
+            <p class="friend-max"><span class="max-title">Deadlift Max:</span> <span id="friend3-deadlift"> max value</span></p>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <hr />
+    <span class="text-reset">Jacob Murray</span>
+    <br />
+    <a href="https://github.com/Jaco56/Startupp.git">GitHub</a>
+  </footer>
+</body>
+</html>
