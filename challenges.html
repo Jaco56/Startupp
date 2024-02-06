@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000000;
+        }
 
+        header {
+            background-color: #fff; 
+            padding: 10px;
+            text-align: center;
+            margin: 0 auto 20px auto; 
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #000000; 
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff; 
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        #challenges-container {
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .challenge-container {
+            width: 45%; 
+            border: 2px solid #000000; 
+            border-radius: 5px;
+            box-sizing: border-box; 
+            padding: 10px;
+            margin-bottom: 20px; 
+        }
+
+        .challenge-title {
+            font-weight: bold; 
+            margin-bottom: 10px;
+        }
+
+        .challenge-details {
+            margin-bottom: 5px;
+        }
+
+        .completion-box {
+            width: 100%; 
+            border: 2px solid #000000; 
+            border-radius: 5px;
+            box-sizing: border-box; 
+            padding: 10px;
+            margin-top: 10px; 
+        }
+
+        .completion-label {
+            font-weight: bold; 
+        }
+
+        .completion-checkbox {
+            margin-top: 5px; 
+        }
+
+        #challenges-container h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Challenges</h1>
+    </header>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="friends.html">Friends</a>
+    </nav>
+
+    <div id="challenges-container">
+        <div class="challenge-container">
+            <div class="challenge-box">
+                <p class="challenge-title">Bench 225lbs for 10 reps 3 times!!</p>
+                <p class="challenge-details">Created by: Friend 1</p>
+            </div>
+            <div class="completion-box">
+                <p class="completion-label">Completed?</p>
+                <input type="checkbox" class="completion-checkbox">
+            </div>
+        </div>
+
+        <div class="challenge-container">
+            <div class="challenge-box">
+                <p class="challenge-title">Do Cardio every day this week!</p>
+                <p class="challenge-details">Created by: Friend 2</p>
+            </div>
+            <div class="completion-box">
+                <p class="completion-label">Completed?</p>
+                <input type="checkbox" class="completion-checkbox">
+            </div>
+        </div>
+
+        <div class="challenge-container">
+            <div class="challenge-box">
+                <p class="challenge-title">Dont forget your post workout protien.</p>
+                <p class="challenge-details">Created by: Friend 3</p>
+            </div>
+            <div class="completion-box">
+                <p class="completion-label">Completed?</p>
+                <input type="checkbox" class="completion-checkbox">
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button class="action-button">Edit</button>
+            <button class="action-button">Delete</button>
+    </div>
+
+
+<footer>
+    <hr />
+    <span class="text-reset">Jacob Murray</span>
+    <br />
+    <a href="https://github.com/Jaco56/Startupp.git">GitHub</a>
+  </footer>
+</body>
+</html>
