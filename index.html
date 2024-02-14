@@ -4,64 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff; 
-            color: #000000; 
-        }
-
-        header {
-            background-color: #fff; 
-            color: #000000; 
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000; 
-        }
-
-        #picture {
-            display: inline-block;
-        }
-
-        #login-container {
-            width: 50%;
-            margin: auto;
-            margin-top: 250px; 
-            background-color: #cfcfcf; 
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        #login-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        input {
-            margin: 10px;
-            padding: 8px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        button {
-            margin-top: 20px;
-            background-color: #ffffff; 
-            color: #000000; 
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
@@ -75,16 +18,16 @@
         <form id="login-form" action="home.html" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <button type="submit">Login</button>
-        <a href="home.html">Logged in? Go home!</a>
+        <a href="home.html">Already have an account? Go home!</a>
         </form>
     </div>
 
-</body>
 <footer>
     <hr />
     <span class="text-reset">Jacob Murray</span>
     <br />
     <a href="https://github.com/Jaco56/Startupp.git">GitHub</a>
-  </footer>
+</footer>
+
 </body>
 </html>
