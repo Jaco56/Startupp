@@ -28,4 +28,12 @@ I worked on the application structure and some of the formatting for this delive
 * **Login** - Input box and login button for this.
 * **Database** - Collection of users maxes that can be displayed as friends. 
 * **Websocket** - real time updating for challenges set and challenges made.
-  
+
+## CSS Deliverable 
+I worked on the styling I put in place during the HTML deliverable. This is a more final form of how I want my application to look. I split the work I had done before, off of the index.html and made its own css file that is used by link.
+
+* **Navigation elements** - Fixed the coloring on my various navigation bars, and I made the login box circular. 
+* **Responsive to window resizing** - Looks good on all devices and all sizes of screen.
+* **Application elements** - made it very simple but effective in holding attention. 
+* **Application text content** - I changed my overall font, sizing and some spacing as well, to achieve a more custom feel.
+* **Application images** - I made sure my images would blend well in the background, and not cover anything up.
