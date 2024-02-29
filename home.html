@@ -99,14 +99,41 @@
     </div>
 
     <script>
-        function editMax(maxId) {
-            var newValue = prompt('Enter new max value:');
-            if (newValue !== null) {
-                document.getElementById(maxId).innerText = newValue;
-            }
+        let username = localStorage.getItem('username');
+    
+        if (username) {
+            let usernameSpan = document.getElementById('username');
+            usernameSpan.textContent = username;
         }
-    </script>
 
+        function editMax(maxId) {
+        let newValue = prompt('Enter new max value:');
+        if (newValue !== null) {
+            document.getElementById(maxId).innerText = newValue;
+            
+            localStorage.setItem(maxId, newValue);
+        }
+    }
+
+    function displayMaxValues() {
+        let squatMax = localStorage.getItem('squat-max');
+        let benchMax = localStorage.getItem('bench-max');
+        let deadliftMax = localStorage.getItem('deadlift-max');
+        
+        if (squatMax) {
+            document.getElementById('squat-max').innerText = squatMax;
+        }
+        if (benchMax) {
+            document.getElementById('bench-max').innerText = benchMax;
+        }
+        if (deadliftMax) {
+            document.getElementById('deadlift-max').innerText = deadliftMax;
+        }
+    }
+
+    displayMaxValues();
+    </script>
+    
 </body>
 <footer>
     <hr />
