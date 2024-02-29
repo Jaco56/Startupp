@@ -88,59 +88,68 @@
 </head>
 <body>
 
-    <header>
-        <h1>Challenges</h1>
-    </header>
+<header>
+    <h1>Challenges</h1>
+</header>
 
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="friends.html">Friends</a>
-    </nav>
+<nav>
+    <a href="home.html">Home</a>
+    <a href="friends.html">Friends</a>
+</nav>
 
-    <div id="challenges-container">
-        <div class="challenge-container">
-            <div class="challenge-box">
-                <p class="challenge-title">Bench 225lbs for 10 reps 3 times!!</p>
-                <p class="challenge-details">Created by: Friend 1</p>
-            </div>
-            <div class="completion-box">
-                <p class="completion-label">Completed?</p>
-                <input type="checkbox" class="completion-checkbox">
-            </div>
-        </div>
-
-        <div class="challenge-container">
-            <div class="challenge-box">
-                <p class="challenge-title">Do Cardio every day this week!</p>
-                <p class="challenge-details">Created by: Friend 2</p>
-            </div>
-            <div class="completion-box">
-                <p class="completion-label">Completed?</p>
-                <input type="checkbox" class="completion-checkbox">
-            </div>
-        </div>
-
-        <div class="challenge-container">
-            <div class="challenge-box">
-                <p class="challenge-title">Dont forget your post workout protien.</p>
-                <p class="challenge-details">Created by: Friend 3</p>
-            </div>
-            <div class="completion-box">
-                <p class="completion-label">Completed?</p>
-                <input type="checkbox" class="completion-checkbox">
-            </div>
-        </div>
-        <div class="action-buttons">
-            <button class="action-button">Edit</button>
-            <button class="action-button">Delete</button>
-    </div>
-
+<div id="challenges-container">
+    <!-- Challenges will be dynamically injected here -->
+</div>
 
 <footer>
     <hr />
     <span class="text-reset">Jacob Murray</span>
     <br />
     <a href="https://github.com/Jaco56/Startupp.git">GitHub</a>
-  </footer>
+</footer>
+
+<script>
+    let mockedChallenges = [
+        { title: "Bench 225lbs for 10 reps 3 times!!", createdBy: "Friend 1" },
+        { title: "Do Cardio every day this week!", createdBy: "Friend 2" },
+        { title: "Don't forget your post-workout protein.", createdBy: "Friend 3" }
+    ];
+
+    function simulateRealtimeUpdates() {
+        setInterval(() => {
+            if (mockedChallenges.length >= 3) {
+                mockedChallenges.shift();
+            }
+            const newChallenge = { title: "New Challenge", createdBy: "Friend 4" };
+            mockedChallenges.push(newChallenge);
+            injectChallengesIntoDOM();
+        }, 15000); 
+    }
+
+    function injectChallengesIntoDOM() {
+        const container = document.getElementById('challenges-container');
+        container.innerHTML = ''; 
+        mockedChallenges.forEach(challenge => {
+            const challengeElement = document.createElement('div');
+            challengeElement.classList.add('challenge-container');
+            challengeElement.innerHTML = `
+                <div class="challenge-box">
+                    <p class="challenge-title">${challenge.title}</p>
+                    <p class="challenge-details">Created by: ${challenge.createdBy}</p>
+                </div>
+                <div class="completion-box">
+                    <p class="completion-label">Completed?</p>
+                    <input type="checkbox" class="completion-checkbox">
+                </div>
+            `;
+            container.appendChild(challengeElement);
+        });
+    }
+
+    injectChallengesIntoDOM();
+
+    simulateRealtimeUpdates();
+</script>
+
 </body>
 </html>
