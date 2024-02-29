@@ -109,27 +109,19 @@
 </footer>
 
 <script>
-    let mockedChallenges = [
-        { title: "Bench 225lbs for 10 reps 3 times!!", createdBy: "Friend 1" },
-        { title: "Do Cardio every day this week!", createdBy: "Friend 2" },
-        { title: "Don't forget your post-workout protein.", createdBy: "Friend 3" }
-    ];
-
-    function simulateRealtimeUpdates() {
-        setInterval(() => {
-            if (mockedChallenges.length >= 3) {
-                mockedChallenges.shift();
-            }
-            const newChallenge = { title: "New Challenge", createdBy: "Friend 4" };
-            mockedChallenges.push(newChallenge);
-            injectChallengesIntoDOM();
-        }, 15000); 
+    function getChallengesFromLocalStorage() {
+        const challengesJson = localStorage.getItem('challenges');
+        return challengesJson ? JSON.parse(challengesJson) : [];
     }
 
-    function injectChallengesIntoDOM() {
+    function saveChallengesToLocalStorage(challenges) {
+        localStorage.setItem('challenges', JSON.stringify(challenges));
+    }
+
+    function injectChallengesIntoDOM(challenges) {
         const container = document.getElementById('challenges-container');
-        container.innerHTML = ''; 
-        mockedChallenges.forEach(challenge => {
+        container.innerHTML = ''; // Clear previous challenges
+        challenges.forEach(challenge => {
             const challengeElement = document.createElement('div');
             challengeElement.classList.add('challenge-container');
             challengeElement.innerHTML = `
@@ -146,7 +138,23 @@
         });
     }
 
-    injectChallengesIntoDOM();
+    const challenges = getChallengesFromLocalStorage();
+    injectChallengesIntoDOM(challenges);
+
+    function simulateRealtimeUpdates() {
+        setInterval(() => {
+            const newChallenge = { title: "New Challenge", createdBy: "Friend 4" };
+            challenges.push(newChallenge);
+
+            if (challenges.length > 3) {
+                challenges.shift();
+            }
+
+            saveChallengesToLocalStorage(challenges);
+
+            injectChallengesIntoDOM(challenges);
+        }, 15000); 
+    }
 
     simulateRealtimeUpdates();
 </script>
