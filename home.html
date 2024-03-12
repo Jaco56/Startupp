@@ -68,10 +68,9 @@
         }
 
         footer {
-            margin-top: 20px;
+           margin-top: 20px;
             text-align: center;
         }
-        
     </style>
 </head>
 <body>
@@ -97,16 +96,34 @@
             <p><span class="max-title">Deadlift Max:</span> <span id="deadlift-max">505 Lbs</span> <span class="max-edit" data-max-id="deadlift-max" onclick="editMax('deadlift-max')">Edit</span></p>
         </div>
     </div>
-
+     
     <script>
         let username = localStorage.getItem('username');
-    
         if (username) {
             let usernameSpan = document.getElementById('username');
             usernameSpan.textContent = username;
+            displayMaxValues(username);
         }
 
-        function editMax(maxId) {
+        function displayMaxValues(username) {
+            fetch(`/api/user/maxes?username=${username}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch maxes data');
+                }
+                return response.json();
+            })
+            .then(maxes => {
+                document.getElementById('squat-max').innerText = maxes.squatMax;
+                document.getElementById('bench-max').innerText = maxes.benchMax;
+                document.getElementById('deadlift-max').innerText = maxes.deadliftMax;
+            })
+            .catch(error => {
+                console.error('Error fetching maxes:', error);
+            });
+        } 
+        
+    function editMax(maxId) {
         let newValue = prompt('Enter new max value:');
         if (newValue !== null) {
             document.getElementById(maxId).innerText = newValue;
@@ -115,23 +132,6 @@
         }
     }
 
-    function displayMaxValues() {
-        let squatMax = localStorage.getItem('squat-max');
-        let benchMax = localStorage.getItem('bench-max');
-        let deadliftMax = localStorage.getItem('deadlift-max');
-        
-        if (squatMax) {
-            document.getElementById('squat-max').innerText = squatMax;
-        }
-        if (benchMax) {
-            document.getElementById('bench-max').innerText = benchMax;
-        }
-        if (deadliftMax) {
-            document.getElementById('deadlift-max').innerText = deadliftMax;
-        }
-    }
-
-    displayMaxValues();
     </script>
     
 </body>
