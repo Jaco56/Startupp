@@ -44,3 +44,11 @@ I created placeholders for future WebSocket technology, and I added more JavaScr
 * **Database** - Data for your own personal maxes, and the challenges that are simulated to be pulled in real time, are stored in local storage, but will be replaced later. 
 * **WebSocket** - I created a script for Challenges.html to periodically generate mock challenges, to simulate real time additions by friends. This will be replaced later by a websocket Function. And these will be stored in Database in the future for navigation purposes.
 * **Application Logic** - The Personal max Boxes now work, with you being able to edit them, and stored in local storage for you to come back to. I wanted to do the same for editing and publishiing your own personal challenges, but time got the better of me and I will add that function later. 
+
+## Service Deliverable
+I added backend endpoints to handle login requests. 
+* **Node.js/Express HTTP Service** - Done
+* **Static Middleware for Frontend** - Done
+* **Third Party Endpoints** - Not Done
+* **Backend Service Endpoints** - Example login set that will store current user on Server
+* **Frontend Calls** - 
