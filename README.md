@@ -51,4 +51,4 @@ I added backend endpoints to handle login requests.
 * **Static Middleware for Frontend** - Done
 * **Third Party Endpoints** - Not Done
 * **Backend Service Endpoints** - Example login set that will store current user on Server
-* **Frontend Calls** - 
+* **Frontend Calls** - Used fetch to pull the maxes stored with each temporary username to then disply them on the home.html page. 
