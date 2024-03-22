@@ -12,5 +12,6 @@ Public Elastic IP - 34.192.79.204
 * update friends data. 
 * friend system.
 * keep friend data stored in backend. 
-* logout
-* create account
+* logout function
+* uopdate user data to store in Mongodb
+
