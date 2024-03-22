@@ -1,50 +1,45 @@
 const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
-
 const app = express();
+const DB = require('./database.js');
 
-const apiRouter = express.Router();
-
-app.use(express.static('public'));
 app.use(express.json());
+app.use(express.static('public'));
+app.set('trust proxy', true);
 
-const users = [
-    { username: 'jaco', password: 'password1', squatMax: '500 Lbs', benchMax: '405 lbs', deadliftMax: '505 Lbs' },
-    { username: 'user2', password: 'password2', squatMax: '400 Lbs', benchMax: '300 Lbs', deadliftMax: '450 Lbs' }
-];
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
 
-apiRouter.put('/login', (req, res) => {
+var secureApiRouter = express.Router();
+apiRouter.use(secureApiRouter);
+DB.initializeDB();
+
+app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
-    
-    const user = users.find(user => user.username === username && user.password === password);
-    if (user) {
-        res.status(200).json({ message: 'Login successful', username: username });
-    } else {
-        res.status(401).json({ message: 'Invalid username or password' });
+    try {
+        const user = await DB.loginUser(username, password);
+        if (user) {
+            res.status(200).send({ message: 'Login successful', user: user });
+        } else {
+            res.status(401).send({ message: 'Invalid username or password' });
+        }
+    } catch (error) {
+        console.error('Error logging in:', error);
+        res.status(500).send({ message: 'Internal server error' });
     }
 });
 
-apiRouter.get('/user/maxes', (req, res) => {
-    const loggedInUsername = req.query.username;
-
-    const user = users.find(user => user.username === loggedInUsername);
-    if (user) {
-        res.json({
-            squatMax: user.squatMax,
-            benchMax: user.benchMax,
-            deadliftMax: user.deadliftMax
-        });
-    } else {
-        res.status(404).json({ message: 'User not found' });
+app.post('/api/create-account', async (req, res) => {
+    const { username, password } = req.body;
+    try {
+        await DB.createUser(username, password);
+        res.status(201).send({ message: 'Account created successfully' });
+    } catch (error) {
+        console.error('Error creating account:', error);
+        res.status(500).send({ message: 'Internal server error' });
     }
 });
 
-app.use('/api', apiRouter);
-
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
-
-
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
