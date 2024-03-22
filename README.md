@@ -52,3 +52,12 @@ I added backend endpoints to handle login requests.
 * **Third Party Endpoints** - Not Done
 * **Backend Service Endpoints** - Example login set that will store current user on Server
 * **Frontend Calls** - Used fetch to pull the maxes stored with each temporary username to then disply them on the home.html page. 
+
+## Login Deliverable
+working login and create user system, with mongodb as the database. Needs more work for storing other data but no time now. will get to it later this week.
+* **MongoDB Atlas database created** -
+* **Stores data in MongoDB** -
+* **User registration** -
+* **Existing user** -
+* **Use MongoDB to store credentials** -
+* **Restricts functionality** -
