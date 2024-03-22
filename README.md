@@ -55,9 +55,9 @@ I added backend endpoints to handle login requests.
 
 ## Login Deliverable
 working login and create user system, with mongodb as the database. Needs more work for storing other data but no time now. will get to it later this week.
-* **MongoDB Atlas database created** -
-* **Stores data in MongoDB** -
-* **User registration** -
-* **Existing user** -
-* **Use MongoDB to store credentials** -
-* **Restricts functionality** -
+* **MongoDB Atlas database created** - Done  
+* **Stores data in MongoDB** - Stores username and password but will later store personal maxes and friend data
+* **User registration** - Working create account option, that will take provided username and password and add to mongodb after encrypting
+* **Existing user** - Checks for an existing user before creating account, is usernames match, will error
+* **Use MongoDB to store credentials** - Stores users and will later store user Data for each page
+* **Restricts functionality** - Cannot reach the home page without loging in or creating an account and then logging in.
