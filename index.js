@@ -39,6 +39,21 @@ app.post('/api/create-account', async (req, res) => {
     }
 });
 
+app.post('/api/check-username', async (req, res) => {
+    const { username } = req.body;
+    try {
+        const user = await DB.findUserByUsername(username);
+        if (user) {
+            res.status(400).send('Username already exists');
+        } else {
+            res.sendStatus(200);
+        }
+    } catch (error) {
+        console.error('Error checking username:', error);
+        res.status(500).send('Internal server error');
+    }
+});
+
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
