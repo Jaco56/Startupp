@@ -26,17 +26,29 @@ async function handleCreateAccountClick() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     try {
-        const response = await fetch('/api/create-account', {
+        const checkResponse = await fetch('/api/check-username', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username })
+        });
+        if (!checkResponse.ok) {
+            const errorMessage = await checkResponse.text();
+            alert(`Failed to create account: ${errorMessage}`);
+            return;
+        }
+        const createResponse = await fetch('/api/create-account', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ username, password })
         });
-        if (response.ok) {
+        if (createResponse.ok) {
             alert('Account created successfully. You can now log in.');
         } else {
-            const errorMessage = await response.text();
+            const errorMessage = await createResponse.text();
             alert(`Failed to create account: ${errorMessage}`);
         }
     } catch (error) {
