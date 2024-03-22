@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +13,14 @@
     <div id="picture" class="picture-box"><img width="400px" src="https://static.vecteezy.com/system/resources/thumbnails/000/539/381/small/barbell__28b_w_29.jpg" alt="random" /></div>
 </header>
 
-<div id="login-container">
-    <h2 style="text-align: center;">Let's Lift!</h2>
-    <form id="login-form" onsubmit="handleLogin(event)">
-        <input type="text" id="username" name="username" placeholder="Username" required>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-</div>
+<form id="login-form">
+    <input type="text" id="username" name="username" placeholder="Username" required>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+    <div class="button-container">
+        <button type="button" id="login-button" onclick="handleLoginSubmit()">Login</button>
+        <button type="button" class="create-account-button" id="create-account-button" onclick="handleCreateAccountClick()">Create User</button>
+    </div>
+</form>
 
 <footer>
     <hr />
@@ -28,39 +29,6 @@
     <a href="https://github.com/Jaco56/Startupp.git">GitHub</a>
 </footer>
 
-<script>
-    async function handleLogin(event) {
-        event.preventDefault(); 
-        
-        let usernameInput = document.getElementById('username');
-        let passwordInput = document.getElementById('password');
-        let username = usernameInput.value;
-        let password = passwordInput.value;
-        
-        try {
-            const response = await fetch('/api/login', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, password })
-            });
-
-            if (response.ok) {
-                localStorage.setItem('username', username);
-                window.location.href = 'home.html';
-            } else {
-                alert('Invalid username or password');
-            }
-        } catch (error) {
-            console.error('Error logging in:', error);
-            alert('An error occurred while logging in. Please try again later.');
-        }
-    }
-</script>
-
-</body>
-</html>
-
+<script src="login.js"></script>
 </body>
 </html>
