@@ -18,7 +18,17 @@ async function initializeDB() {
     }
 }
 
+async function findUserByUsername(username) {
+    const db = client.db(dbName);
+    const collection = db.collection(userCollectionName);
+    return await collection.findOne({ username: username });
+}
+
 async function createUser(username, password) {
+    const existingUser = await findUserByUsername(username);
+    if (existingUser) {
+        throw new Error('Username already exists');
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = {
         username: username,
