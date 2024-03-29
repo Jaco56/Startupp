@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function() {
     let username = localStorage.getItem('username');
     if (username) {
