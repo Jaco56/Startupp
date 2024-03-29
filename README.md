@@ -61,3 +61,10 @@ working login and create user system, with mongodb as the database. Needs more w
 * **Existing user** - Checks for an existing user before creating account, is usernames match, will error
 * **Use MongoDB to store credentials** - Stores users and will later store user Data for each page
 * **Restricts functionality** - Cannot reach the home page without loging in or creating an account and then logging in.
+
+## WebSocket Deliverable
+For this I used websocket to message all connected users about when someone updates a max value in real time. I am having some issues with my session management but it still works as needed for now. I have other big projects due so I havent fully implemented what I want done, I will also be using it for the friend system as well, but it works.
+* **Backend Listens for Websocket connection** - Sets up and listens
+* **Frontend Makes Websocket Connection** - Yes, it does.
+* **Data Sent Over Websocket Connection** - sends the max value data and username data, for the individual who updated a max.
+* **WebSocket Data Displayed** - Shows the message in the top left corner of the screen to all users connected. Realtime when a user updates a perosnal record! 
