@@ -11,8 +11,11 @@ async function handleLoginSubmit() {
         });
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('user', JSON.stringify(data.user));
+            
+            localStorage.setItem('username', data.user.username);
+            
             window.location.href = 'home.html';
+
         } else {
             alert('Invalid username or password');
         }
@@ -21,7 +24,6 @@ async function handleLoginSubmit() {
         alert('An error occurred while logging in. Please try again later.');
     }
 }
-
 async function handleCreateAccountClick() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
